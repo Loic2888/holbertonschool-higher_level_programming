@@ -4,3 +4,4 @@ for i in range(10):
         print("{:d}{:d}".format(i, j), end="")
         if not (i == 8 and j == 9):
             print(", ", end="")
+print()
