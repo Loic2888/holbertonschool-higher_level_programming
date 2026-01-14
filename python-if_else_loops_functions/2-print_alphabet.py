@@ -1,4 +1,3 @@
 #!/usr/bin/python3
-import string
-for c in string.ascii_lowercase:
-	print(f"{c}", end="")
+for i in range(ord('a'), ord('z') + 1):
+    print(f"{chr(i)}", end="")
