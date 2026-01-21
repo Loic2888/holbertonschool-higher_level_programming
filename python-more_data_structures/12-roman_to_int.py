@@ -10,7 +10,7 @@ def roman_to_int(roman_string):
         "M": 1000}
 
     if roman_string is None or not isinstance(roman_string, str):
-        return None
+        return 0
     total = 0
     prev_value = 0
     for i in reversed(roman_string.upper()):
