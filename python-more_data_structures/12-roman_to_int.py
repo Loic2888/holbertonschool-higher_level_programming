@@ -13,8 +13,8 @@ def roman_to_int(roman_string):
         return None
     total = 0
     prev_value = 0
-      for char in reversed(roman_string.upper()):
-        value = roman_table.get(char, 0)
+    for i in reversed(roman_string.upper()):
+        value = roman_table.get(i, 0)
         if value < prev_value:
             total -= value
         else:
