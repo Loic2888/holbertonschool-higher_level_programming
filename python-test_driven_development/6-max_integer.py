@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Docstring for 6-max_integer
+"""
 def max_integer(list=[]):
     """Function to find and return the max integer in a list of integers
         If the list is empty, the function returns None
