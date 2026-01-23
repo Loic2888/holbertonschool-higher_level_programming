@@ -23,25 +23,25 @@ def matrix_divided(matrix, div):
     """
 
     # 1. Validate Matrix Type (Must be list of lists of ints/floats)
-    type_error_msg = "matrix must be a matrix of integers/floats"
+    type_error = "matrix must be a matrix (list of lists) of integers/floats"
 
     if not isinstance(matrix, list) or len(matrix) == 0:
-        raise TypeError(type_error_msg)
+        raise TypeError(type_error)
 
     for row in matrix:
         if not isinstance(row, list):
-            raise TypeError(type_error_msg)
+            raise TypeError(type_error)
         for x in row:
             if not isinstance(x, (int, float)):
-                raise TypeError(type_error_msg)
+                raise TypeError(type_error)
 
     # 2. Validate Row Sizes (Must be consistent)
-    size_error_msg = "Each row of the matrix must have the same size"
+    size_error = "Each row of the matrix must have the same size"
 
     row_length = len(matrix[0])
     for row in matrix:
         if len(row) != row_length:
-            raise TypeError(size_error_msg)
+            raise TypeError(size_error)
 
     # 3. Validate Divisor Type (Must be number)
     if not isinstance(div, (int, float)):
