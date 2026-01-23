@@ -1,0 +1,47 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("String")
+String
+>>> text_indentation("String.Hello")
+String.
+<BLANKLINE>
+Hello
+>>> text_indentation("String?Hello")
+String?
+<BLANKLINE>
+Hello
+>>> text_indentation("String.:?Hello")
+String.
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+Hello
+>>> text_indentation("String.:Hello")
+String.
+<BLANKLINE>
+:
+<BLANKLINE>
+Hello
+>>> text_indentation("String?.Hello")
+String?
+<BLANKLINE>
+.
+<BLANKLINE>
+Hello
+>>> text_indentation("???")
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+>>> text_indentation(3)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation("")
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
