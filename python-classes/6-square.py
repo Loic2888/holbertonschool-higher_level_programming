@@ -5,9 +5,14 @@
 class Square:
     """Represent a square."""
     def __init__(self, size=0, position=(0, 0)):
-        """Initialize a new Square."""
-        self.__size = size
-        self.__position = position
+        """Initialize a new Square.
+        
+        Args:
+            size (int): Size of the square.
+            position (tuple): Position of the square.
+        """
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -16,7 +21,11 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """Setter for the private size attribute."""
+        """Setter for the private size attribute.
+        
+        Args:
+            value (int): New size value.
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -30,12 +39,17 @@ class Square:
 
     @position.setter
     def position(self, value):
-        """Setter for the private position attribute."""
-        if not isinstance(value, tuple) or len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if not isinstance(value[0], int) or not isinstance(value[1], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if value[0] < 0 or value[1] < 0:
+        """Setter for the position attribute.
+        
+        Args:
+            value (tuple): New position tuple.
+        """
+        if (not isinstance(value, tuple) or
+            len(value) != 2 or
+            not isinstance(value[0], int) or
+            not isinstance(value[1], int) or
+            value[0] < 0 or
+            value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
