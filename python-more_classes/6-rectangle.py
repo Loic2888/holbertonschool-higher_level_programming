@@ -19,6 +19,7 @@ class Rectangle:
         :param height: initial height of the rectangle (int >= 0, default 0)
         :raises TypeError: if width or height is not an integer
         :raises ValueError: if width or height is negative
+        Incrémente le compteur d'instances lors de la création.
         """
         self.width = width
         self.height = height
@@ -140,6 +141,7 @@ class Rectangle:
         Prints a farewell message to indicate the object's destruction.
         Triggered automatically by Python's garbage collector
         or explicit 'del' statement.
+        Décrémente le compteur d'instances.
         """
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
