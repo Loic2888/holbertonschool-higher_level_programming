@@ -3,13 +3,7 @@
 
 
 class Rectangle:
-    """
-    Rectangle class.
-
-    Represents a rectangle defined by its width and height.
-    Uses private properties with validation to ensure width and height
-    are non-negative integers.
-    """
+    """Defines a rectangle."""
     number_of_instances = 0
     print_symbol = '#'
 
@@ -103,7 +97,7 @@ class Rectangle:
             return (self.__width + self.__height) * 2
 
     def __str__(self):
-        """Return the rectangle with the character in print_symbol."""
+        """Return the rectangle with the character print_symbol."""
         if self.__width == 0 or self.__height == 0:
             return ""
         result = ""
@@ -114,18 +108,9 @@ class Rectangle:
                 result += "\n"
         return result
 
-    def __repr__(self):
-        """
-        Return a string representation for developer use and object recreation.
-        Provides an unambiguous string representation
-        that can be used to recreatethe Rectangle object using eval().
-        Follows the format "Rectangle(width, height)".
-        Example:
-            Rectangle(3, 4).__repr__() -> "Rectangle(3, 4)"
-        :return: string representation for object recreation
-        :rtype: str
-        """
-        return f"Rectangle({self.width}, {self.height})"
+        def __repr__(self):
+        """Return a string to recreate the rectangle."""
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
         """
@@ -138,7 +123,7 @@ class Rectangle:
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
-        @staticmethod
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """
         Return the biggest rectangle based on the area
