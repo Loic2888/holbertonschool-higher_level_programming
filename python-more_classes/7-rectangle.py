@@ -103,27 +103,16 @@ class Rectangle:
             return (self.__width + self.__height) * 2
 
     def __str__(self):
-        """
-        Return a string representation of the rectangle as a visual grid.
-        Creates an ASCII art representation using '#' characters.
-        Returns empty string for degenerate rectangles (width or height = 0).
-        Example:
-            Rectangle(3, 2) -> "###\\n###"
-        :return: multiline string representing the rectangle visually
-        :rtype: str
-        """
+        """Return the rectangle with the character in print_symbol."""
         if self.__width == 0 or self.__height == 0:
-            symbol = Rectangle.print_symbol
-            return f"{symbol * self.width}\n" + f"{symbol * self.width}"
-
-        rect_list = []
+            return ""
+        result = ""
         for i in range(self.__height):
             for j in range(self.__width):
-                rect_list.append("#")
+                result += str(self.print_symbol)
             if i != self.__height - 1:
-                rect_list.append("\n")
-
-        return "".join(rect_list)
+                result += "\n"
+        return result
 
     def __repr__(self):
         """
