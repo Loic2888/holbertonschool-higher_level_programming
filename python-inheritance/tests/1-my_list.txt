@@ -1,5 +1,4 @@
-Testing class MyList that inherits from list with print_sorted method
-
+>>> from 1-my_list import MyList
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list.append(4)
