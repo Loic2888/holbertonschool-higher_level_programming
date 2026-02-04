@@ -1,17 +1,74 @@
->>> from 1-my_list import MyList
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
->>> print(my_list)
-[1, 4, 2, 3, 5]
->>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
->>> print(my_list)
-[1, 4, 2, 3, 5]
->>> isinstance(my_list, list)
-True
+====================================
+How to use 1-my_list.py
+====================================
 
-Tests passed!
+This module defines a class ``MyList`` that inherits from ``list``.
+
+Instantiation
+=============
+
+``MyList`` can be instantiated with no arguments, which will return
+an empty list:
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> type(my_list)
+    <class '1-my_list.MyList'>
+
+::
+
+    >>> print(my_list)
+    []
+
+Or a single argument, which must be an iterable object.
+
+::
+
+    >>> my_list = MyList([1, 2, 3])
+    >>> print(my_list)
+    [1, 2, 3]
+
+Usage
+=====
+
+``MyList`` is a child class of ``list`` and supports the same methods.
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> print(my_list)
+    [1, 2, 3]
+
+``print_sorted`` method
+=======================
+
+``MyList`` implements a public instance method
+``print_sorted(self)`` that prints the list sorted in ascending order.
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+::
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+The original list is not modified by ``print_sorted(...)``.
+
+::
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
