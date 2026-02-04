@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """Module that defines a base geometry class"""
 
+
 class BaseGeometry:
     """BaseGeometry class"""
     def area(self):
         """Method that raises an exception"""
         raise Exception("area() is not implemented")
+
     def integer_validator(self, name, value):
         """Method that validates value"""
         if not isinstance(value, int):
