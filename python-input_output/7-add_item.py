@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""7-add_item.py"""
+"""Docstring for 7-add_item.py"""
 
 
 import json
