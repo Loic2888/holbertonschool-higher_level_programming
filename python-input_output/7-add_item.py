@@ -6,11 +6,15 @@ import json
 import sys
 
 
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+filename = "add_item.json"
 
 
-file = "add_item.json"
-my_obj = load_from_json_file(file)
-my_obj.extend(sys.argv[1:])
-save_to_json_file(my_obj, file)
+try:
+    my_list = load_from_json_file(filename)
+except Exception:
+    my_list = []
+
+my_list.extend(sys.argv[1:])
+save_to_json_file(my_list, filename)
