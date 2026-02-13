@@ -9,19 +9,20 @@ import pickle
 
 
 class CustomObject:
-    """Custom class with name (str), age (int), is_student (bool) attributes."""
+    """Custom class with name (str), age (int), is_student
+    (bool) attributes."""
     def __init__(self, name, age, is_student):
         """Initialize CustomObject instance."""
         self.name = name
         self.age = age
         self.is_student = is_student
-    
+
     def display(self):
         """Print object attributes in specified format."""
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
         print(f"Is Student: {self.is_student}")
-    
+
     def serialize(self, filename):
         """Serialize current instance to filename using pickle.
         Args:
@@ -41,7 +42,8 @@ class CustomObject:
         Args:
             filename (str): Path to load pickled object.
         Returns:
-            CustomObject instance if success, None on exception (non-existent/malformed).
+            CustomObject instance if success, None on exceptio
+            (non-existent/malformed).
         """
         try:
             with open(filename, 'rb') as f:
