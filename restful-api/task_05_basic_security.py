@@ -25,6 +25,7 @@ app.config['JWT_SECRET_KEY'] = 'super-secret-key-change-in-production'
 
 auth = HTTPBasicAuth()
 jwt = JWTManager(app)
+
 gph = generate_password_hash
 cph = check_password_hash
 
@@ -77,7 +78,7 @@ def handle_needs_fresh(err):
 @app.route("/basic-protected", methods=["GET"])
 @auth.login_required
 def basic_protected():
-    return "Basic Auth: Access Granted", 200
+    return "Basic Auth: Access Granted"
 
 
 @app.route("/login", methods=["POST"])
@@ -86,7 +87,7 @@ def login():
         data = request.get_json()
         username = data.get("username")
         password = data.get("password")
-    except Exception:
+    except Exception as e:
         return jsonify({"error": "Invalid JSON"}), 400
 
     if username in users and cph(users[username]["password"], password):
@@ -94,7 +95,7 @@ def login():
             "username": username,
             "role": users[username]["role"]
         })
-        return jsonify({"access_token": access_token}), 200
+        return jsonify(access_token=access_token)
 
     return jsonify({"error": "Invalid credentials"}), 401
 
@@ -102,7 +103,7 @@ def login():
 @app.route("/jwt-protected", methods=["GET"])
 @jwt_required()
 def jwt_protected():
-    return "JWT Auth: Access Granted", 200
+    return "JWT Auth: Access Granted"
 
 
 @app.route("/admin-only", methods=["GET"])
@@ -114,7 +115,7 @@ def admin_only():
     if users[username]["role"] != "admin":
         return jsonify({"error": "Admin access required"}), 403
 
-    return "Admin Access: Granted", 200
+    return "Admin Access: Granted"
 
 
 if __name__ == "__main__":
