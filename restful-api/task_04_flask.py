@@ -40,8 +40,10 @@ def get_user(username):
     Returns:
         JSON user object (200) or error (404)
     """
-    if username in users:
-        return jsonify(users[username])
+      user_info = users.get(username)
+
+    if user_info:
+        return jsonify(user_info)
     else:
         return jsonify({"error": "User not found"}), 404
 
@@ -63,26 +65,23 @@ def add_user():
     - 400: Invalid JSON or missing username
     - 409: Username already exists
     """
-    try:
-        data = request.get_json()
-    except:
-        return jsonify({"error": "Invalid JSON"}), 400
+    if not request.is_json:
+        return jsonify({"error":"Invalid JSON"}), 400
 
-    if "username" not in data:
-        return jsonify({"error": "Username is required"}), 400
+    data = request.get_json()
 
-    username = data["username"]
+    username = data.get("username")
+
+    if not username:
+        return jsonify({"error":"Username is required"}), 400
+
     if username in users:
-        return jsonify({"error": "Username already exists"}), 409
+        return jsonify({"error":"Username already exists"}), 409
 
-    users[username] = {
-        "name": data.get("name"),
-        "age": data.get("age"),
-        "city": data.get("city")
-    }
+    users[username] = data
 
     return jsonify({
-        "message": "User added successfully",
+        "message": "User added",
         "user": users[username]
     }), 201
 
