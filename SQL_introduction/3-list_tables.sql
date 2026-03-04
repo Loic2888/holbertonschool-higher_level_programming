@@ -1,2 +1,3 @@
--- List all tables in the current database
-USE `$1`; SHOW TABLES;
+-- List all tables of a database in your MySQL server
+-- The database name will be passed as argument of the mysql command
+SHOW TABLES;
