@@ -1,5 +1,10 @@
--- Create the force_name table with an auto-incrementing id and a name column
+-- 3-force_name.sql
+-- Creates the table force_name on your MySQL server
+-- force_name description:
+-- id INT
+-- name VARCHAR(256) can't be null
+
 CREATE TABLE IF NOT EXISTS force_name (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT,
     name VARCHAR(256) NOT NULL
 );
