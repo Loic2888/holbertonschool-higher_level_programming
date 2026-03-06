@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""script that lists all states from the database hbtn_0e_0_usa"""
-
+"""This script connects to a MySQL database"""
 import MySQLdb
 import sys
 
@@ -17,12 +16,13 @@ if __name__ == "__main__":
         db=database
     )
 
-    cursor = db.cursor()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
 
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    rows = cur.fetchall()
 
-    rows = cursor.fetchall()
     for row in rows:
         print(row)
 
+    cur.close()
     db.close()
