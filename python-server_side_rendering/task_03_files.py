@@ -52,6 +52,7 @@ def products():
     source = request.args.get('source')
     id_param = request.args.get('id')
     products_list = []
+    error_message = None  
 
     if source == 'json':
         products_list = read_products_from_json()
