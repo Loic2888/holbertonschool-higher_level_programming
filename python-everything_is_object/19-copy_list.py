@@ -1,14 +1,3 @@
- def copy_list(a_list):
-    """Returns a copy of the given list.
-
-    Parameters
-    ----------
-    a_list : list
-        The list to copy.
-
-    Returns
-    -------
-    list
-        A copy of the given list.
-    """
+#!/usr/bin/python
+def copy_list(a_list):
     return a_list[:]
